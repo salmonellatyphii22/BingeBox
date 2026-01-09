@@ -1,39 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "../api/axios";
 import MovieCard from "./MovieCard";
 import "./Row.css";
 
 export default function Row({ title, fetchUrl, isLargeRow = false }) {
-  const [movies, setMovies] = useState([]);   // always start with empty array
+  const [movies, setMovies] = useState([]);
   const [error, setError] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get(fetchUrl);
-
-        // TMDB returns data in res.data.results
-        if (res.data && res.data.results) {
-          setMovies(res.data.results);
-        } else {
-          setMovies([]);
-          setError(true);
+        if (!fetchUrl) {
+          console.error("Missing fetchUrl for row:", title);
+          return;
         }
+
+        const res = await axios.get(fetchUrl);
+        setMovies(res.data?.results || []);
+        setError(false);
       } catch (err) {
-        console.error("TMDB fetch error:", err);
+        console.error("Row fetch error:", title, err);
+        setMovies([]);
         setError(true);
       }
     }
 
     fetchData();
-  }, [fetchUrl]);
+  }, [fetchUrl, title]);
 
   return (
     <div className="row">
       <h2>{title}</h2>
 
       <div className="row__posters">
-        {movies?.map((movie) => (
+        {movies.map((movie) => (
           <MovieCard
             key={movie.id}
             movie={movie}

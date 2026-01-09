@@ -12,7 +12,7 @@ export default function Banner() {
         // FIXED typo: fetchTrending
         const request = await axios.get(requests.fetchTrending);
 
-        const results = request.data?.results;
+        const results = request.data?.results || [];
 
         if (results && results.length > 0) {
           setMovie(results[Math.floor(Math.random() * results.length)]);
