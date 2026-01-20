@@ -1,48 +1,33 @@
-import React, { useEffect, useState } from "react";
-import axios from "../api/axios";
-import MovieCard from "./MovieCard";
+import React from "react";
 import "./Row.css";
 
-export default function Row({ title, fetchUrl, isLargeRow = false }) {
-  const [movies, setMovies] = useState([]);
-  const [error, setError] = useState(false);
+const BASE_URL = "https://image.tmdb.org/t/p/original";
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        if (!fetchUrl) {
-          console.error("Missing fetchUrl for row:", title);
-          return;
-        }
-
-        const res = await axios.get(fetchUrl);
-        setMovies(res.data?.results || []);
-        setError(false);
-      } catch (err) {
-        console.error("Row fetch error:", title, err);
-        setMovies([]);
-        setError(true);
-      }
-    }
-
-    fetchData();
-  }, [fetchUrl, title]);
-
+function Row({ title, movies = [], isLargeRow = false }) {
   return (
     <div className="row">
       <h2>{title}</h2>
 
       <div className="row__posters">
-        {movies.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            movie={movie}
-            isLargeRow={isLargeRow}
-          />
-        ))}
+        {movies.map(
+          (movie) =>
+            ((isLargeRow && movie.poster_path) ||
+              (!isLargeRow && movie.backdrop_path)) && (
+              <img
+                key={movie.id}
+                className={`row__poster ${
+                  isLargeRow && "row__posterLarge"
+                }`}
+                src={`${BASE_URL}${
+                  isLargeRow ? movie.poster_path : movie.backdrop_path
+                }`}
+                alt={movie.title || movie.name}
+              />
+            )
+        )}
       </div>
-
-      {error && <p style={{ color: "red" }}>Failed to load movies</p>}
     </div>
   );
 }
+
+export default Row;

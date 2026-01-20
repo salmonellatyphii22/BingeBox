@@ -3,42 +3,57 @@ import axios from "../api/axios";
 import requests from "../api/requests";
 import "./Banner.css";
 
-export default function Banner() {
-  const [movie, setMovie] = useState(null);   // must be null, not []
+const BASE_URL = "https://image.tmdb.org/t/p/original";
 
+export default function Banner() {
+  const [movies, setMovies] = useState([]);
+  const [index, setIndex] = useState(0);
+
+  // Fetch trending movies
   useEffect(() => {
     async function fetchData() {
       try {
-        // FIXED typo: fetchTrending
-        const request = await axios.get(requests.fetchTrending);
-
-        const results = request.data?.results || [];
-
-        if (results && results.length > 0) {
-          setMovie(results[Math.floor(Math.random() * results.length)]);
-        }
+        const res = await axios.get(requests.fetchTrending);
+        setMovies(res.data?.results || []);
       } catch (error) {
         console.error("Banner API error:", error);
       }
     }
-
     fetchData();
   }, []);
+
+  // Auto-slide banner every 5 seconds
+  useEffect(() => {
+    if (movies.length === 0) return;
+
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % movies.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [movies]);
+
+  const movie = movies[index];
 
   return (
     <header
       className="banner"
       style={{
         backgroundSize: "cover",
-        backgroundImage: movie
-          ? `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`
+        backgroundImage: movie?.backdrop_path
+          ? `url(${BASE_URL}${movie.backdrop_path})`
           : "none",
         backgroundPosition: "center top",
       }}
     >
       <div className="banner-content">
-        <h1>{movie?.title || movie?.name || movie?.original_name}</h1>
-        <p className="description">{movie?.overview}</p>
+        <h1 className="banner-title">
+          {movie?.title || movie?.name || movie?.original_name}
+        </h1>
+
+        <p className="banner-description">
+          {movie?.overview}
+        </p>
 
         <div className="banner__buttons">
           <button className="banner-btn">Play</button>

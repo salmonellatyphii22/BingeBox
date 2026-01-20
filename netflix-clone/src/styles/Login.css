@@ -1,67 +1,85 @@
-/* Reset browser defaults */
-* {
-  box-sizing: border-box;
-}
-
-/* Full page */
-.login {
-  height: 100vh;
-  width: 100vw;
-  background: #000;
-}
-
-/* Center everything */
-.login__overlay {
-  height: 100%;
-  width: 100%;
+/* FULL SCREEN CENTERING */
+.loginPage {
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background-color: black;
 }
 
-/* Card */
-.login__box {
+/* NETFLIX CARD */
+.login {
   width: 100%;
-  max-width: 420px;
+  max-width: 450px;
   padding: 40px;
-  background: #111;
+  background: rgba(0, 0, 0, 0.75);
   color: white;
   border-radius: 6px;
 }
 
-/* Stack form items vertically */
-.login__box form {
+/* FORM */
+.loginForm {
   display: flex;
   flex-direction: column;
 }
 
-/* Inputs */
-.login__box input {
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 15px;
-  font-size: 16px;
+.loginForm h1 {
+  margin-bottom: 20px;
 }
 
-/* Button */
-.login__box button {
-  padding: 14px;
-  background: red;
+.loginForm input {
+  margin-bottom: 14px;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+}
+
+.loginForm button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #e50914;
   color: white;
   border: none;
   font-size: 16px;
   cursor: pointer;
 }
 
-/* Options */
-.login__options {
-  display: flex;
-  justify-content: space-between;
+.loginForm button:disabled {
+  opacity: 0.7;
+}
+
+.loginError {
+  color: #e87c03;
+  font-size: 14px;
   margin-top: 10px;
+}
+
+.loginHelp {
+  margin-top: 16px;
   font-size: 14px;
 }
 
-/* Signup */
-.signup {
-  margin-top: 20px;
+.signupLink {
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.signupLink:hover {
+  text-decoration: underline;
+}
+
+.loginForm {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
