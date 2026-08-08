@@ -1,0 +1,120 @@
+/* Background */
+.tvshows {
+    background-color: #111;
+    min-height: 100vh;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Container for all rows */
+.tvshows__rows {
+    margin-top: -120px;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 50px;
+}
+
+/* Row spacing */
+.tvshows__rows .row {
+    margin-bottom: 30px;
+}
+
+/* Smooth scrolling */
+.tvshows__rows .row__posters {
+    scroll-behavior: smooth;
+}
+
+/* Banner gradient */
+.tvshows .banner {
+    position: relative;
+    height: 80vh;
+}
+
+.tvshows .banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        #111 5%,
+        rgba(17, 17, 17, 0.25) 45%,
+        rgba(17, 17, 17, 0.05) 100%
+    );
+}
+
+.tvshows .banner__contents {
+    position: relative;
+    z-index: 2;
+}
+
+/* Section titles */
+.tvshows h2 {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Poster hover animation */
+.tvshows .row__poster {
+    transition: transform 300ms ease,
+                box-shadow 300ms ease;
+}
+
+.tvshows .row__poster:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+    z-index: 10;
+}
+
+/* Hide scrollbar */
+.tvshows .row__posters::-webkit-scrollbar {
+    display: none;
+}
+
+.tvshows .row__posters {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+
+    .tvshows .banner {
+        height: 65vh;
+    }
+
+    .tvshows__rows {
+        margin-top: -90px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .tvshows .banner {
+        height: 55vh;
+    }
+
+    .tvshows__rows {
+        margin-top: -70px;
+    }
+
+    .tvshows h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .tvshows .banner {
+        height: 45vh;
+    }
+
+    .tvshows__rows {
+        margin-top: -50px;
+    }
+
+    .tvshows h2 {
+        font-size: 1rem;
+    }
+}

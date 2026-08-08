@@ -1,0 +1,92 @@
+/* ==========================
+   Movies Page
+========================== */
+
+.movies {
+    background-color: #111;
+    min-height: 100vh;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Movie Rows */
+.movies .row {
+    margin-bottom: 30px;
+}
+
+/* Lift rows over banner */
+.movies .row:first-of-type {
+    margin-top: -120px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Smooth scrolling */
+.movies .row__posters {
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar */
+.movies .row__posters::-webkit-scrollbar {
+    display: none;
+}
+
+.movies .row__posters {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Hover Effect */
+.movies .row__poster {
+    transition: transform 300ms ease,
+                box-shadow 300ms ease;
+}
+
+.movies .row__poster:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.75);
+    z-index: 10;
+}
+
+/* Fade between banner and rows */
+.movies::before {
+    content: "";
+    display: block;
+    height: 0;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width: 1024px) {
+
+    .movies .row:first-of-type {
+        margin-top: -90px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .movies .row:first-of-type {
+        margin-top: -70px;
+    }
+
+    .movies .row {
+        margin-bottom: 20px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .movies .row:first-of-type {
+        margin-top: -50px;
+    }
+
+    .movies .row {
+        margin-bottom: 15px;
+    }
+
+}

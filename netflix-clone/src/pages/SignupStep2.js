@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { useLocation, useNavigate } from "react-router-dom";
+import "../styles/Login.css";
 
 function SignupStep2() {
   const { state } = useLocation();
@@ -12,7 +13,7 @@ function SignupStep2() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // 🔒 Prevent direct access to step 2
+  // Prevent direct access to Step 2
   if (!state?.email) {
     navigate("/signup");
     return null;
@@ -24,7 +25,7 @@ function SignupStep2() {
     setLoading(true);
 
     try {
-      // 1️⃣ Create auth user
+      // Create Firebase Authentication user
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         state.email,
@@ -33,46 +34,62 @@ function SignupStep2() {
 
       const user = userCredential.user;
 
-      // 2️⃣ Store subscription status in Firestore
+      // Store additional user data in Firestore
       await setDoc(doc(db, "users", user.uid), {
         email: user.email,
-        plan: "free",          // 👈 subscription status
-        isSubscribed: false,   // optional but useful
-        createdAt: new Date()
+        plan: "free",
+        isSubscribed: false,
+        createdAt: new Date(),
       });
 
-      // 3️⃣ Redirect to login (Netflix behavior)
+      // Redirect to Login page
       navigate("/login");
     } catch (err) {
       console.error(err);
-      setError("Account already exists or password too weak");
+      setError("Account already exists or password is too weak.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
+  <div className="loginPage">
     <div className="login">
-      <form onSubmit={handleSignup} className="loginForm">
-        <h1>Create a password</h1>
+      <form
+        className="loginForm"
+        onSubmit={handleSignup}
+      >
+        <h1>Create Password</h1>
 
         <input
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) =>
+            setPassword(e.target.value)
+          }
           required
           minLength={6}
         />
 
-        {error && <p className="loginError">{error}</p>}
+        {error && (
+          <p className="loginError">
+            {error}
+          </p>
+        )}
 
-        <button type="submit" disabled={loading}>
-          {loading ? "Creating..." : "Create Account"}
+        <button
+          type="submit"
+          disabled={loading}
+        >
+          {loading
+            ? "Creating..."
+            : "Create Account"}
         </button>
       </form>
     </div>
-  );
+  </div>
+);
 }
 
 export default SignupStep2;

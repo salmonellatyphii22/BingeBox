@@ -1,0 +1,88 @@
+.watch{
+    width:100%;
+    height:100vh;
+    background:#000;
+    position:relative;
+    overflow:hidden;
+}
+
+.watch-player{
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+.watch-back{
+    position:absolute;
+    top:25px;
+    left:25px;
+    z-index:100;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:10px 18px;
+
+    border:none;
+    border-radius:8px;
+
+    background:rgba(0,0,0,.7);
+    color:white;
+
+    font-size:16px;
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.watch-back:hover{
+    background:#E50914;
+}
+
+.watch-loading{
+    width:100%;
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+}
+
+.watch-spinner{
+    width:60px;
+    height:60px;
+
+    border:5px solid #444;
+    border-top:5px solid #E50914;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+    margin-bottom:20px;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@media(max-width:768px){
+
+    .watch-back{
+        top:15px;
+        left:15px;
+        padding:8px 14px;
+        font-size:14px;
+    }
+
+    .watch-spinner{
+        width:50px;
+        height:50px;
+    }
+}

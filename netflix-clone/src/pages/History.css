@@ -1,0 +1,1324 @@
+/* =====================================================
+   HISTORY PAGE
+===================================================== */
+
+.history{
+
+    background:#111;
+
+    color:white;
+
+    min-height:100vh;
+
+    padding-top:70px;
+
+    overflow-x:hidden;
+}
+
+.history-loading{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#111;
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:600;
+}
+
+
+/* =====================================================
+   HERO BANNER
+===================================================== */
+
+.history-banner{
+
+    position:relative;
+
+    width:100%;
+
+    height:85vh;
+
+    background-size:cover;
+
+    background-position:center center;
+
+    background-repeat:no-repeat;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    overflow:hidden;
+}
+
+.history-banner-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.92) 0%,
+            rgba(0,0,0,.65) 35%,
+            rgba(0,0,0,.25) 70%,
+            rgba(0,0,0,.05) 100%
+        );
+
+    z-index:1;
+}
+
+.history-banner-content{
+
+    position:relative;
+
+    z-index:2;
+
+    width:45%;
+
+    margin-left:60px;
+
+    margin-bottom:120px;
+}
+
+.history-banner-tag{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:#e50914;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+}
+
+.history-banner-title{
+
+    font-size:64px;
+
+    font-weight:800;
+
+    line-height:1.1;
+
+    margin-bottom:20px;
+}
+
+.history-banner-meta{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-bottom:25px;
+
+    color:#d2d2d2;
+
+    font-size:17px;
+}
+
+.history-banner-description{
+
+    color:#d7d7d7;
+
+    font-size:17px;
+
+    line-height:1.7;
+
+    max-width:650px;
+
+    margin-bottom:30px;
+}
+
+
+/* =====================================================
+   HERO PROGRESS
+===================================================== */
+
+.history-banner-progress{
+
+    margin-bottom:35px;
+}
+
+.history-progress-track{
+
+    width:420px;
+
+    height:8px;
+
+    border-radius:20px;
+
+    background:#404040;
+
+    overflow:hidden;
+}
+
+.history-progress-fill{
+
+    height:100%;
+
+    background:#e50914;
+
+    border-radius:20px;
+
+    transition:.4s;
+}
+
+.history-progress-text{
+
+    display:block;
+
+    margin-top:12px;
+
+    color:#bdbdbd;
+
+    font-size:15px;
+}
+
+
+/* =====================================================
+   HERO BUTTONS
+===================================================== */
+
+.history-banner-buttons{
+
+    display:flex;
+
+    gap:15px;
+}
+
+.history-play-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:15px 30px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:white;
+
+    color:black;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.history-play-btn:hover{
+
+    background:#e4e4e4;
+
+    transform:scale(1.03);
+}
+
+.history-info-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:15px 28px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:rgba(109,109,110,.75);
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.history-info-btn:hover{
+
+    background:rgba(109,109,110,.55);
+}
+
+.history-banner-fade{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+
+    height:30vh;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(17,17,17,.45),
+            #111
+        );
+}
+
+
+/* =====================================================
+   CONTINUE WATCHING
+===================================================== */
+
+.continue-section{
+
+    padding:45px 60px;
+}
+
+.continue-title{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+}
+
+.continue-slider{
+
+    display:flex;
+
+    gap:22px;
+
+    overflow-x:auto;
+
+    overflow-y:hidden;
+
+    scroll-behavior:smooth;
+
+    padding-bottom:10px;
+}
+
+.continue-slider::-webkit-scrollbar{
+
+    display:none;
+}
+
+.continue-slider{
+
+    scrollbar-width:none;
+}
+
+
+/* =====================================================
+   CONTINUE CARD
+===================================================== */
+
+.continue-card{
+
+    position:relative;
+
+    min-width:340px;
+
+    height:210px;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.continue-card:hover{
+
+    transform:scale(1.04);
+}
+
+.continue-image{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+}
+
+.continue-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.9)
+        );
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    padding:20px;
+}
+
+.continue-overlay h3{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+}
+
+.continue-episode{
+
+    color:#d2d2d2;
+
+    font-size:14px;
+
+    margin-bottom:12px;
+}
+
+
+/* =====================================================
+   CONTINUE PROGRESS
+===================================================== */
+
+.continue-progress{
+
+    margin-bottom:12px;
+}
+
+.continue-progress-track{
+
+    width:100%;
+
+    height:7px;
+
+    border-radius:20px;
+
+    background:#555;
+
+    overflow:hidden;
+}
+
+.continue-progress-fill{
+
+    height:100%;
+
+    background:#e50914;
+}
+
+.continue-progress span{
+
+    display:block;
+
+    margin-top:8px;
+
+    color:#cfcfcf;
+
+    font-size:13px;
+}
+
+.continue-time{
+
+    color:#bdbdbd;
+
+    font-size:14px;
+
+    margin-bottom:15px;
+}
+
+
+/* =====================================================
+   RESUME BUTTON
+===================================================== */
+
+.continue-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    width:150px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:white;
+
+    color:black;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.continue-btn:hover{
+
+    background:#e5e5e5;
+}
+
+/* =====================================================
+   SEARCH TOOLBAR
+===================================================== */
+
+.history-toolbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:10px 60px 40px;
+}
+
+/* =====================================================
+   SEARCH BAR
+===================================================== */
+
+.history-search{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    width:420px;
+
+    height:52px;
+
+    background:#1b1b1b;
+
+    border:1px solid #333;
+
+    border-radius:10px;
+
+    transition:.3s;
+}
+
+.history-search:hover{
+
+    border-color:#666;
+}
+
+.history-search:focus-within{
+
+    border-color:#e50914;
+
+    box-shadow:
+        0 0 0 2px rgba(229,9,20,.25);
+}
+
+.history-search-icon{
+
+    margin-left:18px;
+
+    color:#8b8b8b;
+
+    font-size:18px;
+}
+
+.history-search-input{
+
+    flex:1;
+
+    height:100%;
+
+    margin-left:12px;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:16px;
+}
+
+.history-search-input::placeholder{
+
+    color:#777;
+}
+
+.history-search-clear{
+
+    width:35px;
+
+    height:35px;
+
+    margin-right:10px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:transparent;
+
+    color:#999;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.history-search-clear:hover{
+
+    background:#303030;
+
+    color:white;
+}
+
+
+/* =====================================================
+   GRID SECTION
+===================================================== */
+
+.history-grid-section{
+
+    padding:0 60px 70px;
+}
+
+.history-grid-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+}
+
+.history-grid-header h2{
+
+    font-size:34px;
+
+    font-weight:700;
+}
+
+.history-grid-header span{
+
+    color:#9d9d9d;
+
+    font-size:16px;
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.history-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(310px,1fr)
+        );
+
+    gap:30px;
+}
+
+
+/* =====================================================
+   HISTORY CARD
+===================================================== */
+
+.history-card{
+
+    background:#1a1a1a;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    transition:.3s;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.35);
+}
+
+.history-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.55);
+}
+
+
+/* =====================================================
+   POSTER
+===================================================== */
+
+.history-card-poster{
+
+    width:100%;
+
+    height:420px;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.history-card-content{
+
+    padding:20px;
+}
+
+.history-card-content h3{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin-bottom:14px;
+
+    line-height:1.3;
+}
+
+
+/* =====================================================
+   META
+===================================================== */
+
+.history-card-meta{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+
+    margin-bottom:16px;
+
+    color:#d2d2d2;
+
+    font-size:15px;
+}
+
+.history-card-meta span{
+
+    display:flex;
+
+    align-items:center;
+}
+
+
+/* =====================================================
+   GENRES
+===================================================== */
+
+.history-card-genres{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-bottom:18px;
+}
+
+.history-card-genres span{
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    background:#2d2d2d;
+
+    color:#d7d7d7;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   CARD PROGRESS
+===================================================== */
+
+.history-progress{
+
+    margin-bottom:18px;
+}
+
+.history-progress-track{
+
+    width:100%;
+
+    height:8px;
+
+    background:#3f3f3f;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.history-progress-fill{
+
+    height:100%;
+
+    background:#e50914;
+
+    border-radius:20px;
+
+    transition:.4s;
+}
+
+.history-progress span{
+
+    display:block;
+
+    margin-top:10px;
+
+    color:#bcbcbc;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   RUNTIME
+===================================================== */
+
+.history-runtime{
+
+    color:#bfbfbf;
+
+    font-size:15px;
+
+    margin-bottom:8px;
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+.history-date{
+
+    color:#9c9c9c;
+
+    font-size:14px;
+
+    margin-bottom:22px;
+}
+
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.history-empty{
+
+    min-height:450px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+}
+
+.history-empty h2{
+
+    font-size:36px;
+
+    margin-bottom:16px;
+}
+
+.history-empty p{
+
+    color:#9f9f9f;
+
+    font-size:18px;
+
+    max-width:480px;
+
+    line-height:1.6;
+}
+
+/* =====================================================
+   CARD ACTIONS
+===================================================== */
+
+.history-card-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:22px;
+}
+
+.watch-again-btn{
+
+    flex:1;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:white;
+
+    color:black;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.watch-again-btn:hover{
+
+    background:#e7e7e7;
+
+    transform:scale(1.03);
+}
+
+.mylist-btn{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#2f2f2f;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.mylist-btn svg{
+
+    font-size:22px;
+}
+
+.mylist-btn:hover{
+
+    background:#444;
+
+    transform:scale(1.05);
+}
+
+.mylist-btn .fa-heart{
+
+    color:#e50914;
+}
+
+/* =====================================================
+   STAR RATING
+===================================================== */
+
+.history-rating{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:20px;
+}
+
+.rating-star-btn{
+
+    background:none;
+
+    border:none;
+
+    color:#888;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    transition:.2s;
+}
+
+.rating-star-btn:hover{
+
+    color:#ffd54f;
+
+    transform:scale(1.15);
+}
+
+.rating-star-btn svg{
+
+    pointer-events:none;
+}
+
+/* =====================================================
+   REVIEW BUTTON
+===================================================== */
+
+.review-btn{
+
+    width:100%;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#272727;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:.25s;
+}
+
+.review-btn:hover{
+
+    background:#383838;
+}
+
+.review-btn svg{
+
+    font-size:15px;
+}
+
+/* =====================================================
+   CARD HOVER
+===================================================== */
+
+.history-card{
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.history-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.25)
+        );
+
+    opacity:0;
+
+    transition:.3s;
+
+    pointer-events:none;
+}
+
+.history-card:hover::before{
+
+    opacity:1;
+}
+
+.history-card:hover .history-card-poster{
+
+    transform:scale(1.04);
+}
+
+.history-card-poster{
+
+    transition:.35s;
+}
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+.continue-slider::-webkit-scrollbar{
+
+    height:8px;
+}
+
+.continue-slider::-webkit-scrollbar-track{
+
+    background:#222;
+}
+
+.continue-slider::-webkit-scrollbar-thumb{
+
+    background:#555;
+
+    border-radius:20px;
+}
+
+.continue-slider::-webkit-scrollbar-thumb:hover{
+
+    background:#777;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1200px){
+
+    .history-banner-content{
+
+        width:55%;
+    }
+
+    .history-banner-title{
+
+        font-size:50px;
+    }
+
+    .history-grid{
+
+        grid-template-columns:
+            repeat(
+                auto-fill,
+                minmax(280px,1fr)
+            );
+    }
+
+}
+
+@media(max-width:992px){
+
+    .history-banner{
+
+        height:75vh;
+    }
+
+    .history-banner-content{
+
+        width:70%;
+
+        margin-left:35px;
+
+        margin-bottom:80px;
+    }
+
+    .history-banner-title{
+
+        font-size:42px;
+    }
+
+    .history-banner-description{
+
+        font-size:15px;
+    }
+
+    .continue-card{
+
+        min-width:300px;
+
+        height:190px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .history{
+
+        padding-top:60px;
+    }
+
+    .history-banner{
+
+        height:70vh;
+    }
+
+    .history-banner-content{
+
+        width:90%;
+
+        margin-left:20px;
+
+        margin-bottom:60px;
+    }
+
+    .history-banner-title{
+
+        font-size:34px;
+    }
+
+    .history-banner-description{
+
+        font-size:14px;
+    }
+
+    .history-progress-track{
+
+        width:100%;
+    }
+
+    .continue-section{
+
+        padding:30px 20px;
+    }
+
+    .history-grid-section{
+
+        padding:0 20px 40px;
+    }
+
+    .history-toolbar{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        padding:20px;
+    }
+
+    .history-search{
+
+        width:100%;
+    }
+
+    .history-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .history-card-poster{
+
+        height:360px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .history-banner{
+
+        height:60vh;
+    }
+
+    .history-banner-title{
+
+        font-size:28px;
+    }
+
+    .continue-card{
+
+        min-width:260px;
+
+        height:170px;
+    }
+
+    .history-card-poster{
+
+        height:320px;
+    }
+
+    .watch-again-btn{
+
+        font-size:14px;
+    }
+
+    .rating-star-btn{
+
+        font-size:18px;
+    }
+
+}

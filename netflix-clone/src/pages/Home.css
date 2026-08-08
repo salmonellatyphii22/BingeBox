@@ -1,5 +1,7 @@
-.home {
-  background-color: #111;
-  position: relative;
-  z-index: 1;
+.home{
+    padding-top: 70px;
+    background-color: #111;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position:relative;
 }

@@ -4,6 +4,7 @@ import { auth } from "../firebase";
 import "../styles/Login.css";
 import { useNavigate, Link } from "react-router-dom";
 import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import axios from "axios";
 
 const provider = new GoogleAuthProvider();
 
@@ -25,12 +26,31 @@ function Login({ setUser }) {
 
     try {
       const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      setUser(userCredential.user);
-      navigate("/", { replace: true });
+      auth,
+      email,
+      password
+    );
+
+    // Get Firebase ID Token
+    const token = await userCredential.user.getIdToken();
+
+    console.log("Firebase Token:", token);
+
+    // Send token to FastAPI
+    const response = await axios.get(
+      "http://127.0.0.1:8000/auth/me",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    console.log("Backend Response:", response.data);
+
+    setUser(userCredential.user);
+
+    navigate("/", { replace: true });
     } catch (err) {
       switch (err.code) {
         case "auth/user-not-found":
@@ -55,7 +75,27 @@ function Login({ setUser }) {
     await signOut(auth); // 🚨 REQUIRED
 
     const result = await signInWithPopup(auth, provider);
-    console.log(result.user.email);
+
+    // Firebase ID Token
+    const token = await result.user.getIdToken();
+
+    console.log("Firebase Token:", token);
+
+    // Send token to FastAPI
+    const response = await axios.get(
+      "http://127.0.0.1:8000/auth/me",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    console.log("Backend Response:", response.data);
+
+    setUser(result.user);
+
+    navigate("/", { replace: true });
 
   } catch (error) {
     console.error(error);

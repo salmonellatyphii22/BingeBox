@@ -1,0 +1,1377 @@
+/* ==========================================
+   Settings Page
+========================================== */
+
+.settings{
+
+    min-height:100vh;
+
+    background:#141414;
+
+    color:#ffffff;
+
+    padding:120px 60px 60px;
+
+}
+
+.settings-loading{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#141414;
+
+    color:#ffffff;
+
+    font-size:26px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   Sections
+========================================== */
+
+.settings-section{
+
+    margin-bottom:45px;
+
+}
+
+.settings-title{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+    color:#ffffff;
+
+}
+
+.settings-description{
+
+    color:#b3b3b3;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+    margin-top:8px;
+
+}
+
+/* ==========================================
+   Common Card
+========================================== */
+
+.settings-card{
+
+    background:#1b1b1b;
+
+    border-radius:16px;
+
+    padding:30px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================
+   Account Section
+========================================== */
+
+.account-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+    background:#1b1b1b;
+
+    border-radius:16px;
+
+    padding:35px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.account-avatar{
+
+    width:130px;
+
+    height:130px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    background:#2b2b2b;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+}
+
+.account-avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.account-avatar svg{
+
+    font-size:90px;
+
+    color:#bdbdbd;
+
+}
+
+/* ==========================================
+   Account Details
+========================================== */
+
+.account-details{
+
+    flex:1;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+
+}
+
+.account-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+}
+
+.account-icon{
+
+    font-size:22px;
+
+    color:#e50914;
+
+    margin-top:4px;
+
+}
+
+.account-icon.verified{
+
+    color:#32d74b;
+
+}
+
+.account-item span{
+
+    display:block;
+
+    color:#9c9c9c;
+
+    font-size:14px;
+
+    margin-bottom:4px;
+
+}
+
+.account-item h4{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#ffffff;
+
+}
+
+/* ==========================================
+   Edit Profile Button
+========================================== */
+
+.edit-profile-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    width:180px;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#e50914;
+
+    color:#ffffff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.edit-profile-btn:hover{
+
+    background:#b20710;
+
+    transform:translateY(-2px);
+
+}
+
+.edit-profile-btn svg{
+
+    font-size:17px;
+
+}
+
+/* ==========================================
+   Common Setting Rows
+========================================== */
+
+.settings-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.settings-row:last-child{
+
+    border-bottom:none;
+
+}
+
+.settings-row h4{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#ffffff;
+
+    margin-bottom:6px;
+
+}
+
+.settings-row p{
+
+    color:#a7a7a7;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+}
+
+.settings-row-column{
+
+    margin-top:30px;
+
+}
+
+.settings-row-column h4{
+
+    font-size:18px;
+
+    margin-bottom:18px;
+
+    color:#ffffff;
+
+}
+
+/* ==========================================
+   Toggle Switch
+========================================== */
+
+.switch{
+
+    position:relative;
+
+    display:inline-block;
+
+    width:58px;
+
+    height:30px;
+
+}
+
+.switch input{
+
+    opacity:0;
+
+    width:0;
+
+    height:0;
+
+}
+
+.slider{
+
+    position:absolute;
+
+    inset:0;
+
+    cursor:pointer;
+
+    background:#555;
+
+    transition:.3s;
+
+    border-radius:30px;
+
+}
+
+.slider::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:24px;
+
+    height:24px;
+
+    left:3px;
+
+    bottom:3px;
+
+    background:white;
+
+    border-radius:50%;
+
+    transition:.3s;
+
+}
+
+.switch input:checked + .slider{
+
+    background:#e50914;
+
+}
+
+.switch input:checked + .slider::before{
+
+    transform:translateX(28px);
+
+}
+
+/* ==========================================
+   Radio Buttons
+========================================== */
+
+.radio-group{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:22px;
+
+}
+
+.radio-group label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#d8d8d8;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+.radio-group input[type="radio"]{
+
+    width:18px;
+
+    height:18px;
+
+    accent-color:#e50914;
+
+    cursor:pointer;
+
+}
+
+/* ==========================================
+   Volume Slider
+========================================== */
+
+.volume-slider{
+
+    width:100%;
+
+    height:6px;
+
+    border-radius:10px;
+
+    appearance:none;
+
+    background:#444;
+
+    outline:none;
+
+    cursor:pointer;
+
+}
+
+.volume-slider::-webkit-slider-thumb{
+
+    appearance:none;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:#e50914;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.volume-slider::-webkit-slider-thumb:hover{
+
+    transform:scale(1.2);
+
+}
+
+.volume-slider::-moz-range-thumb{
+
+    width:18px;
+
+    height:18px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#e50914;
+
+    cursor:pointer;
+
+}
+
+/* ==========================================
+   Save Button
+========================================== */
+
+.settings-save-container{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin:40px 0;
+
+}
+
+.settings-save-btn{
+
+    width:220px;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#e50914;
+
+    color:#ffffff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.settings-save-btn:hover{
+
+    background:#b20710;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   Appearance
+========================================== */
+
+.theme-colors{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-top:15px;
+
+}
+
+.theme-color-btn{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    border:3px solid transparent;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    outline:none;
+
+}
+
+.theme-color-btn:hover{
+
+    transform:scale(1.12);
+
+}
+
+.theme-color-btn.active{
+
+    border:3px solid #ffffff;
+
+    box-shadow:0 0 0 4px rgba(255,255,255,.15);
+
+    transform:scale(1.1);
+
+}
+
+/* ==========================================
+   Theme Colors
+========================================== */
+
+.theme-color-btn.red{
+
+    background:#e50914;
+
+}
+
+.theme-color-btn.blue{
+
+    background:#0071eb;
+
+}
+
+.theme-color-btn.purple{
+
+    background:#8e44ad;
+
+}
+
+.theme-color-btn.green{
+
+    background:#2ecc71;
+
+}
+
+/* ==========================================
+   Appearance Preview
+========================================== */
+
+.theme-preview{
+
+    margin-top:25px;
+
+    background:#222;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.theme-preview h4{
+
+    font-size:18px;
+
+    color:#ffffff;
+
+}
+
+.theme-preview p{
+
+    color:#b3b3b3;
+
+    margin-top:6px;
+
+}
+
+/* ==========================================
+   Notification Section
+========================================== */
+
+.notification-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.notification-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.notification-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.notification-item h4{
+
+    font-size:17px;
+
+    color:#ffffff;
+
+    margin-bottom:5px;
+
+}
+
+.notification-item p{
+
+    font-size:14px;
+
+    color:#9f9f9f;
+
+    line-height:1.5;
+
+}
+
+/* ==========================================
+   Settings Labels
+========================================== */
+
+.settings-label{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.settings-label span{
+
+    font-size:14px;
+
+    color:#8c8c8c;
+
+    margin-top:4px;
+
+}
+
+/* ==========================================
+   Divider
+========================================== */
+
+.settings-divider{
+
+    width:100%;
+
+    height:1px;
+
+    background:rgba(255,255,255,.08);
+
+    margin:30px 0;
+
+}
+
+/* ==========================================
+   Section Spacing
+========================================== */
+
+.settings-section + .settings-section{
+
+    margin-top:50px;
+
+}
+
+/* ==========================================
+   Content Preferences
+========================================== */
+
+.genre-grid{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:16px;
+
+    margin-top:25px;
+
+}
+
+.genre-chip{
+
+    padding:12px 22px;
+
+    border:2px solid #444;
+
+    border-radius:30px;
+
+    background:#242424;
+
+    color:#d5d5d5;
+
+    font-size:15px;
+
+    font-weight:500;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.genre-chip:hover{
+
+    border-color:#e50914;
+
+    background:#2e2e2e;
+
+    color:#ffffff;
+
+    transform:translateY(-2px);
+
+}
+
+.genre-chip.active{
+
+    background:#e50914;
+
+    color:#ffffff;
+
+    border-color:#e50914;
+
+    font-weight:600;
+
+    box-shadow:0 6px 18px rgba(229,9,20,.35);
+
+}
+
+.genre-chip.active:hover{
+
+    background:#b20710;
+
+    border-color:#b20710;
+
+}
+
+/* ==========================================
+   Selected Genres
+========================================== */
+
+.selected-count{
+
+    margin-top:22px;
+
+    color:#9f9f9f;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.selected-count span{
+
+    color:#e50914;
+
+    font-weight:700;
+
+}
+
+/* ==========================================
+   Genre Card
+========================================== */
+
+.genre-card{
+
+    margin-top:25px;
+
+    padding:22px;
+
+    border-radius:12px;
+
+    background:#202020;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.genre-card h4{
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    margin-bottom:10px;
+
+}
+
+.genre-card p{
+
+    color:#9d9d9d;
+
+    line-height:1.6;
+
+    font-size:14px;
+
+}
+
+/* ==========================================
+   Save Button Area
+========================================== */
+
+.settings-save-container{
+
+    margin-top:45px;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.settings-save-btn{
+
+    min-width:220px;
+
+    height:54px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#e50914;
+
+    color:#ffffff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.settings-save-btn:hover{
+
+    background:#b20710;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 22px rgba(229,9,20,.35);
+
+}
+
+.settings-save-btn:active{
+
+    transform:scale(.98);
+
+}
+
+.settings-save-btn:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+
+}
+
+/* ==========================================
+   Success Message
+========================================== */
+
+.settings-success{
+
+    color:#46d369;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.settings-error{
+
+    color:#ff4d4f;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   Logout Section
+========================================== */
+
+.logout-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    width:220px;
+
+    height:54px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#2b2b2b;
+
+    color:#ffffff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.logout-btn:hover{
+
+    background:#3b3b3b;
+
+    transform:translateY(-2px);
+
+}
+
+.logout-btn svg{
+
+    font-size:18px;
+
+}
+
+/* ==========================================
+   Danger Zone
+========================================== */
+
+.danger-title{
+
+    color:#ff4d4f;
+
+}
+
+.danger-card{
+
+    background:#1b1b1b;
+
+    border:1px solid rgba(255,77,79,.35);
+
+}
+
+.danger-content{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:24px;
+
+    margin-bottom:30px;
+
+}
+
+.danger-icon{
+
+    font-size:42px;
+
+    color:#ff4d4f;
+
+    flex-shrink:0;
+
+    margin-top:5px;
+
+}
+
+.danger-content h3{
+
+    color:#ffffff;
+
+    font-size:24px;
+
+    margin-bottom:12px;
+
+}
+
+.danger-list{
+
+    margin-top:18px;
+
+    padding-left:22px;
+
+    color:#bcbcbc;
+
+    line-height:2;
+
+}
+
+.danger-list li{
+
+    margin-bottom:4px;
+
+}
+
+.delete-account-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    width:240px;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#e50914;
+
+    color:#ffffff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.delete-account-btn:hover{
+
+    background:#b20710;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 25px rgba(229,9,20,.35);
+
+}
+
+.delete-account-btn svg{
+
+    font-size:18px;
+
+}
+
+/* ==========================================
+   Responsive (Tablet)
+========================================== */
+
+@media(max-width:1024px){
+
+    .settings{
+
+        padding:110px 35px 50px;
+
+    }
+
+    .account-card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .account-details{
+
+        grid-template-columns:1fr;
+
+        width:100%;
+
+    }
+
+    .edit-profile-btn{
+
+        width:100%;
+
+    }
+
+    .settings-save-container{
+
+        justify-content:center;
+
+    }
+
+    .settings-save-btn{
+
+        width:100%;
+
+        max-width:320px;
+
+    }
+
+}
+
+/* ==========================================
+   Responsive (Mobile)
+========================================== */
+
+@media(max-width:768px){
+
+    .settings{
+
+        padding:95px 20px 40px;
+
+    }
+
+    .settings-title{
+
+        font-size:26px;
+
+    }
+
+    .settings-card{
+
+        padding:22px;
+
+    }
+
+    .settings-row{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:18px;
+
+    }
+
+    .switch{
+
+        align-self:flex-end;
+
+    }
+
+    .radio-group{
+
+        flex-direction:column;
+
+        gap:14px;
+
+    }
+
+    .theme-colors{
+
+        justify-content:center;
+
+    }
+
+    .genre-grid{
+
+        justify-content:center;
+
+    }
+
+    .logout-btn,
+
+    .delete-account-btn,
+
+    .edit-profile-btn,
+
+    .settings-save-btn{
+
+        width:100%;
+
+    }
+
+    .danger-content{
+
+        flex-direction:column;
+
+        gap:18px;
+
+    }
+
+}
+
+/* ==========================================
+   Responsive (Small Mobile)
+========================================== */
+
+@media(max-width:500px){
+
+    .settings{
+
+        padding:85px 15px 30px;
+
+    }
+
+    .settings-title{
+
+        font-size:22px;
+
+    }
+
+    .account-avatar{
+
+        width:100px;
+
+        height:100px;
+
+    }
+
+    .account-avatar svg{
+
+        font-size:70px;
+
+    }
+
+    .account-item h4{
+
+        font-size:16px;
+
+    }
+
+    .settings-row h4{
+
+        font-size:16px;
+
+    }
+
+    .settings-row p{
+
+        font-size:13px;
+
+    }
+
+    .genre-chip{
+
+        font-size:14px;
+
+        padding:10px 18px;
+
+    }
+
+    .theme-color-btn{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+    .danger-content h3{
+
+        font-size:20px;
+
+    }
+
+    .danger-list{
+
+        font-size:14px;
+
+    }
+
+}

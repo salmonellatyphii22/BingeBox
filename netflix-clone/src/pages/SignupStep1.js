@@ -8,24 +8,30 @@ function SignupStep1() {
 
   const handleNext = (e) => {
     e.preventDefault();
-    navigate("/signup/password", { state: { email } });
+    navigate("/signup/password", {
+      state: { email },
+    });
   };
 
   return (
-    <div className="login">
-      <form onSubmit={handleNext} className="loginForm">
-        <h1>Create Account</h1>
+    <div className="loginPage">
+      <div className="login">
+        <form className="loginForm" onSubmit={handleNext}>
+          <h1>Create Account</h1>
 
-        <input
-          type="email"
-          placeholder="Email address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+          <input
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-        <button type="submit">Next</button>
-      </form>
+          <button type="submit">
+            Next
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

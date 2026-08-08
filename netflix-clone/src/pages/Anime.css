@@ -1,0 +1,115 @@
+/* ==========================
+   Anime Page
+========================== */
+
+.anime {
+    background-color: #111;
+    min-height: 100vh;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Lift first row over banner */
+.anime .row:first-of-type {
+    margin-top: -120px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Space between rows */
+.anime .row {
+    margin-bottom: 30px;
+}
+
+/* Smooth scrolling */
+.anime .row__posters {
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar */
+.anime .row__posters::-webkit-scrollbar {
+    display: none;
+}
+
+.anime .row__posters {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Poster hover animation */
+.anime .row__poster {
+    transition: transform 300ms ease,
+                box-shadow 300ms ease,
+                filter 300ms ease;
+}
+
+.anime .row__poster:hover {
+    transform: scale(1.08);
+    filter: brightness(1.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+/* Section titles */
+.anime .row h2 {
+    color: #fff;
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+/* Fade between banner and rows */
+.anime::before {
+    content: "";
+    display: block;
+    height: 0;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width: 1024px) {
+
+    .anime .row:first-of-type {
+        margin-top: -90px;
+    }
+
+    .anime .row h2 {
+        font-size: 1.3rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .anime .row:first-of-type {
+        margin-top: -70px;
+    }
+
+    .anime .row {
+        margin-bottom: 20px;
+    }
+
+    .anime .row h2 {
+        font-size: 1.1rem;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .anime .row:first-of-type {
+        margin-top: -50px;
+    }
+
+    .anime .row {
+        margin-bottom: 15px;
+    }
+
+    .anime .row h2 {
+        font-size: 1rem;
+        margin-left: 10px;
+    }
+
+}

@@ -1,0 +1,36 @@
+.search-page {
+    padding-top: 90px;
+    background: #141414;
+    min-height: 100vh;
+    color:white
+}
+
+.trending-searches {
+    margin-top: 60px;
+    margin-left: 40px;    /* Same left spacing as search bar */
+}
+
+.trending-searches h2 {
+    margin-bottom: 20px;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.chip{
+    background:#2b2b2b;
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.3s;
+}
+
+.chip:hover{
+    background:#e50914;
+}

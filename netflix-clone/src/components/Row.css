@@ -1,52 +1,243 @@
-.row {
-  color: white;
-  margin-left: 20px;
-  position: relative;
-  z-index: 2;
-  margin-top: 20px;
+/* ==========================================
+   Row Section
+========================================== */
+
+.row{
+    background:#111;
+    color:#fff;
+
+    margin-top:35px;
+
+    padding-left:20px;
+
+    position:relative;
+
+    overflow:visible;
 }
 
-.row h2 {
-  margin-left: 20px;
-  margin-bottom: 10px;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #fff; /* FORCE visibility */
+/* ==========================================
+   Title
+========================================== */
+
+.row h2{
+
+    margin-bottom:18px;
+
+    font-size:1.6rem;
+
+    font-weight:700;
 }
 
-/* Posters container */
-.row__posters {
-  display: flex;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  padding: 20px 0;
-  scroll-behavior: smooth;
+/* ==========================================
+   Posters Container
+========================================== */
+
+.row__posters{
+
+    display:flex;
+
+    gap:14px;
+
+    overflow-x:auto;
+    overflow-y:visible;
+
+    position:relative;
+
+    padding:15px 10px 40px;
+
+    scroll-behavior:smooth;
+
+    align-items:flex-start;
+
 }
 
-/* Hide scrollbar */
-.row__posters::-webkit-scrollbar {
-  display: none;
+.row__posters::-webkit-scrollbar{
+    display:none;
 }
 
-/* Normal posters */
-.row__poster {
-  max-height: 160px;
-  object-fit: contain;
-  margin-right: 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+.row__posters{
+    scrollbar-width:none;
+    -ms-overflow-style:none;
 }
 
-.row__poster:hover {
-  transform: scale(1.08);
+/* ==========================================
+   Poster Wrapper
+========================================== */
+
+.poster-wrapper{
+
+    position:relative;
+
+    flex-shrink:0;
+
+    overflow:visible;
+
+    z-index:1;
+
+    transition:z-index .2s;
 }
 
-/* Large posters (Netflix Originals style) */
-.row__posterLarge {
-  max-height: 250px;
+.poster-wrapper:hover{
+
+    z-index:9999;
 }
 
-.row__posterLarge:hover {
-  transform: scale(1.1);
+/* ==========================================
+   Poster Images
+========================================== */
+
+.row__poster{
+
+    width:280px;
+
+    height:160px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:
+        transform .25s ease,
+        filter .25s ease,
+        box-shadow .25s ease;
+}
+
+.poster-wrapper:hover .row__poster{
+
+    transform:scale(1.12);
+
+    filter:brightness(.75);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.65);
+}
+
+/* ==========================================
+   Large Posters
+========================================== */
+
+.row__posterLarge{
+
+    width:200px;
+
+    height:300px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    transition:
+        transform .25s ease,
+        filter .25s ease,
+        box-shadow .25s ease;
+}
+
+.poster-wrapper:hover .row__posterLarge{
+
+    transform:scale(1.08);
+
+    filter:brightness(.75);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.75);
+}
+
+/* ==========================================
+   Hover Card
+========================================== */
+
+.poster-wrapper .hover-card{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-45px;
+
+    transform:
+        translateX(-50%)
+        scale(.92);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.25s;
+
+    z-index:9999;
+}
+
+.poster-wrapper:hover .hover-card{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+    transform:
+        translateX(-50%)
+        scale(1);
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media(max-width:1200px){
+
+    .row__poster{
+
+        width:250px;
+        height:145px;
+    }
+
+    .row__posterLarge{
+
+        width:180px;
+        height:270px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .row{
+
+        margin-top:25px;
+    }
+
+    .row__posters{
+
+        gap:10px;
+
+        padding:20px 10px 100px;
+    }
+
+    .row__poster{
+
+        width:220px;
+        height:125px;
+    }
+
+    .row__posterLarge{
+
+        width:160px;
+        height:240px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .row__poster{
+
+        width:180px;
+        height:105px;
+    }
+
+    .row__posterLarge{
+
+        width:140px;
+        height:210px;
+    }
+
 }

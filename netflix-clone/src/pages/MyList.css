@@ -1,0 +1,287 @@
+/* ==========================================
+   My List Page
+========================================== */
+
+.mylist {
+    background: #111;
+    min-height: 100vh;
+    color: white;
+    padding: 90px 40px 40px;
+}
+
+/* ==========================================
+   Header
+========================================== */
+
+.mylist-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 35px;
+}
+
+.mylist-header h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.mylist-header p {
+    color: #b3b3b3;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Search */
+
+.mylist-header input {
+    width: 350px;
+    max-width: 100%;
+    padding: 12px 18px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background: #222;
+    color: white;
+    font-size: 15px;
+    transition: .3s;
+}
+
+.mylist-header input:focus {
+    background: #333;
+}
+
+/* ==========================================
+   Grid
+========================================== */
+
+.mylist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+/* ==========================================
+   Card
+========================================== */
+
+.mylist-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #181818;
+    transition: .35s;
+    cursor: pointer;
+}
+
+.mylist-card:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 15px 35px rgba(0,0,0,.6);
+}
+
+.mylist-card img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================
+   Overlay
+========================================== */
+
+.mylist-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,.95),
+        rgba(0,0,0,.2)
+    );
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding: 18px;
+
+    opacity: 0;
+
+    transition: .35s;
+}
+
+.mylist-card:hover .mylist-overlay {
+    opacity: 1;
+}
+
+.mylist-overlay h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.mylist-overlay p {
+    color: #ccc;
+    margin-bottom: 18px;
+}
+
+/* ==========================================
+   Buttons
+========================================== */
+
+.mylist-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mylist-buttons button {
+    border: none;
+    outline: none;
+    padding: 11px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Watch */
+
+.watch-btn {
+    background: white;
+    color: black;
+}
+
+.watch-btn:hover {
+    background: #dcdcdc;
+}
+
+/* Info */
+
+.info-btn {
+    background: rgba(109,109,110,.8);
+    color: white;
+}
+
+.info-btn:hover {
+    background: rgba(109,109,110,1);
+}
+
+/* Remove */
+
+.remove-btn {
+    background: #e50914;
+    color: white;
+}
+
+.remove-btn:hover {
+    background: #b20710;
+}
+
+/* ==========================================
+   Empty Page
+========================================== */
+
+.mylist-empty {
+    margin-top: 120px;
+    text-align: center;
+}
+
+.mylist-empty h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.mylist-empty p {
+    color: #b3b3b3;
+    font-size: 18px;
+}
+
+.mylist-empty button {
+    margin-top: 30px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    background: #e50914;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: .3s;
+}
+
+.mylist-empty button:hover {
+    background: #b20710;
+}
+
+/* ==========================================
+   Loading
+========================================== */
+
+.mylist-loading {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #111;
+    color: white;
+
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media (max-width: 1200px) {
+
+    .mylist-grid {
+        grid-template-columns: repeat(4,1fr);
+    }
+
+}
+
+@media (max-width: 992px) {
+
+    .mylist-grid {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .mylist {
+        padding: 90px 20px;
+    }
+
+    .mylist-header h1 {
+        font-size: 2rem;
+    }
+
+    .mylist-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .mylist-card img {
+        height: 300px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .mylist-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mylist-card img {
+        height: 420px;
+    }
+
+    .mylist-header input {
+        width: 100%;
+    }
+
+}

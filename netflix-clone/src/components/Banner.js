@@ -1,67 +1,91 @@
-import React, { useEffect, useState } from "react";
-import axios from "../api/axios";
-import requests from "../api/requests";
+import React from "react";
 import "./Banner.css";
 
 const BASE_URL = "https://image.tmdb.org/t/p/original";
 
-export default function Banner() {
-  const [movies, setMovies] = useState([]);
-  const [index, setIndex] = useState(0);
+export default function Banner({ movie }) {
 
-  // Fetch trending movies
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await axios.get(requests.fetchTrending);
-        setMovies(res.data?.results || []);
-      } catch (error) {
-        console.error("Banner API error:", error);
-      }
-    }
-    fetchData();
-  }, []);
+    if (!movie) return null;
 
-  // Auto-slide banner every 5 seconds
-  useEffect(() => {
-    if (movies.length === 0) return;
+    return (
 
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % movies.length);
-    }, 5000);
+        <header
+            className="banner"
+            style={{
+                backgroundImage: movie.backdrop_path
+                    ? `url(${BASE_URL}${movie.backdrop_path})`
+                    : "none",
+                backgroundSize: "cover",
+                backgroundPosition: "center center",
+            }}
+        >
 
-    return () => clearInterval(interval);
-  }, [movies]);
+            {/* Banner Content */}
 
-  const movie = movies[index];
+            <div className="banner-content">
 
-  return (
-    <header
-      className="banner"
-      style={{
-        backgroundSize: "cover",
-        backgroundImage: movie?.backdrop_path
-          ? `url(${BASE_URL}${movie.backdrop_path})`
-          : "none",
-        backgroundPosition: "center top",
-      }}
-    >
-      <div className="banner-content">
-        <h1 className="banner-title">
-          {movie?.title || movie?.name || movie?.original_name}
-        </h1>
+                {/* Movie Title */}
 
-        <p className="banner-description">
-          {movie?.overview}
-        </p>
+                <h1 className="banner-title">
 
-        <div className="banner__buttons">
-          <button className="banner-btn">Play</button>
-          <button className="banner-btn">More Info</button>
-        </div>
-      </div>
+                    {movie.title ||
+                        movie.name ||
+                        movie.original_name}
 
-      <div className="fade-bottom"></div>
-    </header>
-  );
+                </h1>
+
+                {/* Description */}
+
+                <p className="banner-description">
+
+                    {movie.overview}
+
+                </p>
+
+                {/* Movie Info */}
+
+                <div className="banner-meta">
+
+                    {movie.vote_average && (
+
+                        <span>
+
+                            ⭐ {movie.vote_average.toFixed(1)}
+
+                        </span>
+
+                    )}
+
+                    {movie.release_date && (
+
+                        <span>
+
+                            {movie.release_date}
+
+                        </span>
+
+                    )}
+
+                </div>
+
+                {/* Play Button */}
+
+                <div className="banner__buttons">
+
+                    <button className="banner-btn">
+
+                        ▶ Play
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div className="fade-bottom"></div>
+
+        </header>
+
+    );
+
 }
