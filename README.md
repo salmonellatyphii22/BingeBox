@@ -29,8 +29,8 @@ A modern **Netflix-inspired streaming platform** built with **React, Firebase, F
 ### ❤️ Personalization
 - My List (Watchlist)
 - Watch History
-- Movie Ratings
-- User Reviews
+- Movie Ratings(in progress)
+- User Reviews(in progress)
 - Profile Management
 
 ### 🎨 User Interface
@@ -199,20 +199,6 @@ SECRET_KEY=YOUR_SECRET_KEY
 
 ALGORITHM=HS256
 ```
-
----
-
-# 📸 Screenshots
-
-Add screenshots of:
-
-- Home Page
-- Search Page
-- Movies
-- TV Shows
-- My List
-- Watch History
-- User Profile
 
 ---
 
