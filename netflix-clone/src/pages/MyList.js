@@ -4,7 +4,7 @@ import { auth } from "../firebase";
 import "./MyList.css";
 
 const IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
-const API_BASE = "http://localhost:8000";
+const API_BASE = "https://bingebox-backend-pcxq.onrender.com/";
 
 function MyList() {
   const [movies, setMovies] = useState([]);
