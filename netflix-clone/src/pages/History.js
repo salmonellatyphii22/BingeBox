@@ -10,7 +10,7 @@ import HistoryGrid from "../components/HistoryGrid";
 
 import "./History.css";
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "https://bingebox-backend-pcxq.onrender.com";
 
 function History() {
 

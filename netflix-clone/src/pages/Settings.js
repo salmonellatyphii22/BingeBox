@@ -20,7 +20,7 @@ import DangerZone from "../components/DangerZone";
 
 import "./Settings.css";
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "https://bingebox-backend-pcxq.onrender.com";
 
 function Settings() {
 

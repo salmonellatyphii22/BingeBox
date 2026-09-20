@@ -38,7 +38,7 @@ function Login({ setUser }) {
 
     // Send token to FastAPI
     const response = await axios.get(
-      "http://127.0.0.1:8000/auth/me",
+      "https://bingebox-backend-pcxq.onrender.com/auth/me",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -83,7 +83,7 @@ function Login({ setUser }) {
 
     // Send token to FastAPI
     const response = await axios.get(
-      "http://127.0.0.1:8000/auth/me",
+      "https://bingebox-backend-pcxq.onrender.com/auth/me",
       {
         headers: {
           Authorization: `Bearer ${token}`,

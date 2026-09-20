@@ -12,7 +12,7 @@ import {
 import { auth } from "../firebase";
 
 const IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "https://bingebox-backend-pcxq.onrender.com";
 
 function HistoryCard({ movie, refreshHistory }) {
 
