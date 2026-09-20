@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import "./HoverCard.css";
 
-const API_BASE = "https://bingebox-backend-pcxq.onrender.com/";
+const API_BASE = "https://bingebox-backend-pcxq.onrender.com";
 
 function HoverCard({ movie }) {
   const navigate = useNavigate();
